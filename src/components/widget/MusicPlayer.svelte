@@ -76,32 +76,58 @@ let audio: HTMLAudioElement;
 let progressBar: HTMLElement;
 let volumeBar: HTMLElement;
 
-const localPlaylist = [
-	{
-		id: 1,
-		title: "ひとり上手",
-		artist: "Kaya",
-		cover: "assets/music/cover/hitori.jpg",
-		url: "assets/music/url/hitori.mp3",
-		duration: 240,
-	},
-	{
-		id: 2,
-		title: "眩耀夜行",
-		artist: "スリーズブーケ",
-		cover: "assets/music/cover/xryx.jpg",
-		url: "assets/music/url/xryx.mp3",
-		duration: 180,
-	},
-	{
-		id: 3,
-		title: "春雷の頃",
-		artist: "22/7",
-		cover: "assets/music/cover/cl.jpg",
-		url: "assets/music/url/cl.mp3",
-		duration: 200,
-	},
-];
+// const localPlaylist = [
+// 	{
+// 		id: 1,
+// 		title: "ひとり上手",
+// 		artist: "Kaya",
+// 		cover: "assets/music/cover/hitori.jpg",
+// 		url: "assets/music/url/hitori.mp3",
+// 		duration: 240,
+// 	},
+// 	{
+// 		id: 2,
+// 		title: "眩耀夜行",
+// 		artist: "スリーズブーケ",
+// 		cover: "assets/music/cover/xryx.jpg",
+// 		url: "assets/music/url/xryx.mp3",
+// 		duration: 180,
+// 	},
+// 	{
+// 		id: 3,
+// 		title: "春雷の頃",
+// 		artist: "22/7",
+// 		cover: "assets/music/cover/cl.jpg",
+// 		url: "assets/music/url/cl.mp3",
+// 		duration: 200,
+// 	},
+// ];
+const localPlaylist =  [
+			{
+                id: 1,
+                title: "Fallen Angel",
+                artist: "UnicornPhantom",
+                url: "assets/music/Fallen Angel.mp3",
+                cover: "assets/music/cover/Fallen_Angel.webp",
+                duration: 400,
+			},
+			{
+                id: 2,
+                title: "漫步",
+                artist: "UnicornPhantom",
+                url: "assets/music/漫步.mp3",
+                cover: "assets/music/cover/man_bu.webp",
+                duration: 197,
+			},
+			{
+                id:3,
+				title: "独角",
+				artist: "UnicornPhantom",
+				url: "assets/music/独角.mp3",
+                cover: "assets/music/cover/du_jiao.webp",
+                duration: 181,
+			}
+		];
 
 // 从localStorage加载音量设置
 function loadVolumeSettings() {

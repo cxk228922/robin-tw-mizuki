@@ -16,6 +16,7 @@ import type {
 	SiteConfig,
 } from "./types/config";
 import { LinkPreset } from "./types/config";
+import { title } from "node:process";
 
 // 移除i18n导入以避免循环依赖
 
@@ -458,14 +459,27 @@ export const announcementConfig: AnnouncementConfig = {
 };
 
 export const musicPlayerConfig: MusicPlayerConfig = {
-	// TODO: find playlist
 	enable: true, // 启用音乐播放器功能
-	mode: "meting", // 音乐播放器模式，可选 "local" 或 "meting"
-	meting_api:
-		"https://www.bilibili.uno/api?server=:server&type=:type&id=:id&auth=:auth&r=:r", // Meting API 地址
-	id: "36288729", // 歌单ID
-	server: "netease", // 音乐源服务器。有的meting的api源支持更多平台,一般来说,netease=网易云音乐, tencent=QQ音乐, kugou=酷狗音乐, xiami=虾米音乐, baidu=百度音乐
-	type: "artist", // 播单类型
+	mode: "local",
+	local: {
+		songs: [
+			{
+			title: "Fallen Angel",
+			artist: "UnicornPhantom",
+			url: "/music/Fallen Angel.mp3", // 相对于 public 文件夹的路径
+			},
+			{
+			title: "漫步",
+			artist: "UnicornPhantom",
+			url: "/music/漫步.mp3",
+			},
+			{
+				title: "独角",
+				artist: "`UnicornPhantom",
+				url: "/music/独角.mp3",
+			}
+		]
+	}
 };
 
 export const footerConfig: FooterConfig = {
