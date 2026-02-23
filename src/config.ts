@@ -56,7 +56,7 @@ export const siteConfig: SiteConfig = {
 		// 顶栏标题文本
 		text: "Robin's blog",
 		// 顶栏标题图标路径，默认使用 public/assets/home/home.png
-		icon: "assets/home/home.png",
+		icon: "assets/home/fbk.jpg",
 		// 网站Logo图片路径
 		logo: "assets/home/logo.png",
 	},
@@ -590,7 +590,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 };
 
 export const sakuraConfig: SakuraConfig = {
-	enable: false, // 默认关闭樱花特效
+	enable: true, // 默认关闭樱花特效
 	sakuraNum: 21, // 樱花数量
 	limitTimes: -1, // 樱花越界限制次数，-1为无限循环
 	size: {
