@@ -18,12 +18,12 @@ export type AnimeItem = {
 
 const localAnimeList: AnimeItem[] = [
 	{
-		title: "Lycoris Recoil",
-		status: "completed",
+		title: "我推的孩子",
+		status: "watching",
 		rating: 9.8,
-		cover: "/assets/anime/lkls.webp",
-		description: "Girl's gunfight",
-		episodes: "12 episodes",
+		cover: "https://p2.bahamut.com.tw/B/2KU/44/75880990531ee692fd30b4fb381rpv05.JPG",
+		description: "",
+		episodes: "30 episodes",
 		year: "2022",
 		genre: ["Action", "Slice of life"],
 		studio: "A-1 Pictures",

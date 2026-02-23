@@ -200,6 +200,7 @@ enum I18nKey {
 	timelineProjects = "timelineProjects",
 	timelineExperience = "timelineExperience",
 	timelineCurrent = "timelineCurrent",
+	timelineFuture = "timelineFuture",
 	timelineHistory = "timelineHistory",
 	timelineAchievements = "timelineAchievements",
 	timelineStartDate = "timelineStartDate",

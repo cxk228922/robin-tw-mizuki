@@ -3,7 +3,7 @@ import type { Translation } from "../translation";
 
 export const zh_TW: Translation = {
 	[Key.home]: "首頁",
-	[Key.about]: "關於我們",
+	[Key.about]: "關於我",
 	[Key.archive]: "歸檔",
 	[Key.search]: "搜尋",
 	[Key.other]: "其他",
@@ -243,6 +243,7 @@ export const zh_TW: Translation = {
 	[Key.timelineProjects]: "專案數",
 	[Key.timelineExperience]: "工作經驗",
 	[Key.timelineCurrent]: "當前狀態",
+	[Key.timelineFuture]: "未來計畫",
 	[Key.timelineHistory]: "歷史記錄",
 	[Key.timelineAchievements]: "成就榮譽",
 	[Key.timelineStartDate]: "開始日期",
