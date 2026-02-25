@@ -43,7 +43,7 @@ lang: zh_TW
 
 
 main.go:
-```go=
+```golang
 package main
 
 import "net/http"
@@ -122,7 +122,7 @@ MF1687991111404137095000001f4000001f40000000034785923VG9sG89nFznfPnKYFRlsoA==:**
 
 ## Stream
 **chal:**
-```python=
+```py
 from random import getrandbits
 import os
 from hashlib import sha512
@@ -142,7 +142,7 @@ $R^{2}$跟flag比大很多bit,而XOR只會運算道比較小的位元
 
 所以$\text{ciphertext}$跟$R^{2}$會差不多,爆破他們之間的距離即可
 
-```python=
+```py
 import math
 ciphertext = "0x1a95888d32cd61925d40815f139aeb35d39d8e33f7e477bd020b88d3ca4adee68de5a0dee2922628da3f834c9ada0fa283e693f1deb61e888423fd64d5c3694"
 
@@ -189,7 +189,7 @@ for delta in range(-delta_range, delta_range + 1):
 
 ## Hill
 chal:
-```python=
+```py
 import numpy as np
 
 p = 251
@@ -267,7 +267,7 @@ $$
   $$
  剩下反向操作即可，感謝我大GPT
  
-```python=
+```py
 import numpy as np
 import sympy
 from pwn import remote
@@ -351,7 +351,7 @@ if __name__ == '__main__':
 
 ## SlowECDSA
 chal:
-```python=
+```py
 #!/usr/bin/env python3
 
 import hashlib, os
@@ -538,7 +538,7 @@ $$
 
 exploit:
 
-```python=
+```py
 from pwn import remote
 import hashlib
 from ecdsa import NIST192p
@@ -605,7 +605,7 @@ if __name__ == "__main__":
 > Flag: AIS3{Aff1n3_nounc3s_c@N_bE_broke_ezily...}
 ## Random RSA
 **chal:**
-```python=
+```py
 # chall.py
 from Crypto.Util.number import getPrime, bytes_to_long
 from sympy import nextprime
@@ -708,7 +708,7 @@ $$
      
 若非模 $m$ 下平方剩餘，則該 $j$ 可直接跳過；僅需對 $\Delta_j$ 為平方剩餘的 $j$ 試算平方根與驗證整除
 
-```python=
+```py
 from sympy.ntheory import sqrt_mod
 from Crypto.Util.number import long_to_bytes
 
@@ -788,7 +788,7 @@ for j in range(1, 1001):
 ![CleanShot 2025-05-27 at 08.57.35@2x](https://hackmd.io/_uploads/rk470Kfzel.png)
 
 丟IDA, 追到`main` -> `WinMain` -> `main_getcmdline` -> `SDL_main`
-```cpp=
+```cpp
 int SDL_main()
 {
   //省略變數宣告
@@ -907,7 +907,7 @@ v36 = (SnakeGame::Screen *)((char *)v36 + SnakeGame::Food::S_VALUE);
 繼續猜應該會有一行`v36 > ???`處理"Win"的邏輯,但沒看到
 
 只能往下追
-```cpp=
+```cpp
 if ( !v26 )
 {
     SnakeGame::Screen::clear(v7);
@@ -917,7 +917,7 @@ if ( !v26 )
 }
 ```
 著重看到`update()`, 裡面還調用到`v36`
-```cpp=
+```cpp
 int __userpurge SnakeGame::Screen::update@<eax>(_DWORD *a1@<ecx>, SnakeGame::Screen *this, int a3, char a4, bool a5)
 {
   SDL_UpdateTexture(a1[2], 0, a1[6], 3200);
@@ -929,7 +929,7 @@ int __userpurge SnakeGame::Screen::update@<eax>(_DWORD *a1@<ecx>, SnakeGame::Scr
 }
 ```
 在繼續追到`drawText()`
-```cpp=
+```cpp
 void __userpurge SnakeGame::Screen::drawText(_DWORD *a1@<ecx>, SnakeGame::Screen *this, int a3, int a4)
 {
 
@@ -1030,7 +1030,7 @@ void __userpurge SnakeGame::Screen::drawText(_DWORD *a1@<ecx>, SnakeGame::Screen
 ![CleanShot 2025-05-31 at 15.21.36@2x](https://hackmd.io/_uploads/BkkGAmuzxg.png)
 
 看起來上面的`sub_1E20`在做flag檢查, 追進去看:
-```c=
+```c
 _BOOL4 __cdecl sub_1E20(int a1)
 {
   v1 = 0;
@@ -1067,7 +1067,7 @@ _BOOL4 __cdecl sub_1E20(int a1)
 }
 ```
 然後就叫Gemini寫個code算出flag:
-```python=
+```python
 import struct
 
 def calculate_target_string_bytes():
@@ -1139,7 +1139,7 @@ if __name__ == "__main__":
 ![CleanShot 2025-05-31 at 16.18.03@2x](https://hackmd.io/_uploads/rJwrsVdMle.png)
 
 使用wasm-decompile就可以反編譯, 直接找到關鍵點:
-```typescript=
+```typescript
 export function flagchecker(a:int):int { // func9
   var b:int = g_a;
   var c:int = 96;
@@ -1252,7 +1252,7 @@ export function flagchecker(a:int):int { // func9
 ```
 同樣丟給AI解XD
 
-```python=
+```py
 from struct import pack, unpack
 
 def rol64(val, r):
@@ -1277,7 +1277,7 @@ print(flag_bytes.decode())
 # Pwn
 ## Format Number
 chal:
-```c=
+```c
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
@@ -1331,7 +1331,7 @@ int main() {
 然後要用`_`來串接, 不然會被視為同一個conversion
 
 exploit:
-```python=
+```py
 from pwn import *
 import re
 
@@ -1357,7 +1357,7 @@ for i in range(0, 60):
 
 ## Welcome to the World of Ave Mujica🌙
 chal:
-```c=
+```c
 int __fastcall main(int argc, const char **argv, const char **envp)
 {
   _BYTE buf[143]; // [rsp+0h] [rbp-A0h] BYREF
@@ -1425,7 +1425,7 @@ return address算`Welcome_to_the_world_of_Ave_Mujica`的address再跳過endbr64
 ![image](https://hackmd.io/_uploads/BkMlmotMel.png)
 
 exploit:
-```python=
+```py
 from pwn import *
 r = remote('chals1.ais3.org', 60179)
 r.sendlineafter(b'?',b'yes')

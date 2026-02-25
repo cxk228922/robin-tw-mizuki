@@ -53,7 +53,7 @@ contract HelloWeb3{
 
 ---
 
-```solidity=
+```solidity
 function <functionName>(<Type> <ParameterName>) <visibility> <modifier> returns (<Type>) 
 ```
 
@@ -84,7 +84,7 @@ data storage locations:
 
 
 scope:
-```solidity=
+```solidity
 contract Example {
     uint public count;
     function increment() public pure returns (uint) {
@@ -100,7 +100,7 @@ contract Example {
 | Global(全局變量)  | EVM dynamic | `msg.sender`,`block.number` |
 
 2. Array
-```solidity=
+```solidity
 //fixed-sized arrays
 <type>[<length>] <name>;
 <type>[] memory <name> = new <type>[](<length>);
@@ -118,7 +118,7 @@ dynamic array :
 - `.pop` -> remove the last element of array
 
 3. Struct
-```solidity=
+```solidity
 struct Student{
     uint id;
     uint score; 
@@ -142,7 +142,7 @@ function method4() external {
 ```
 4. Map
 key -> Value
-```solidity=
+```solidity
 mapping(<KeyType> => <ValueType>) public <name>;
 mapping(address => uint) public balances;
 
@@ -165,7 +165,7 @@ balances[msg.sender] = 100;
 
 2. Control flow
 same as C
-```solidity=
+```solidity
 //if-else
 function ifElseTest(uint256 _number) public pure returns(bool){
     if(_number == 0){
@@ -215,7 +215,7 @@ function insertionSort(uint[] memory a) public pure returns(uint[] memory) {
 1. constructor		
 If variables is dynamic dicision **when deploy**,we can use `constructor` to assign
 (similar as `decorator`)
-```solidity=
+```solidity
 address owner; 
 constructor(address initialOwner) {
     owner = initialOwner; 
@@ -223,7 +223,7 @@ constructor(address initialOwner) {
 ```
 2. modifier
 use to modify the behavior of function
-```solidity=
+```solidity
 address public owner;
 bool public paused;
 
@@ -253,7 +253,7 @@ function changeOwner(address newOwner) public onlyOwner whenNotPaused {
 3. event
 When event be triggered,it will be recorded in log
 
-```solidity=
+```solidity
 event Transfer(address indexed from, address indexed to, uint256 value);
 
 function transfer(address _to, uint256 _value) public {
@@ -262,7 +262,7 @@ function transfer(address _to, uint256 _value) public {
 ```
 4. override
 OverWrite the parent function
-```solidity=
+```solidity
 contract Parent {
     function foo() public virtual {
     }
@@ -278,7 +278,7 @@ contract Child is Parent {
 ### 2024.09.29
 1. Interface
 Define the interactions between contracts
-```solidity=
+```solidity
 interface Token {
     function transfer(address recipient, uint256 amount) external returns (bool);
 }
@@ -330,7 +330,7 @@ and more....
 - `require`
 Used to check if a condition is true
 If false,contract will be terminated
-```solidity=
+```solidity
 function withdraw(uint amount) public {
     require(amount <= balance, "Insufficient balance");
     balance -= amount;
@@ -340,7 +340,7 @@ function withdraw(uint amount) public {
         
 - `assert`
 Used to check if a condition **always** be true
-```solidity=
+```solidity
 function decrement() public {
     assert(counter > 0);
     counter -= 1;
@@ -349,7 +349,7 @@ function decrement() public {
 
 - `error`
 Custom error
-```solidity=
+```solidity
 error InsufficientBalance(uint requested, uint available);
 
 function withdraw(uint amount) public {
@@ -366,7 +366,7 @@ function withdraw(uint amount) public {
 #### overloading
 You can define 2 or more same-name function (except `modifier`)<br>
 but need to be different input type
-```solidity=
+```solidity
 function saySomething() public pure returns(string memory){
     return("Nothing");
 }
@@ -376,7 +376,7 @@ function saySomething(string memory something) public pure returns(string memory
 }
 ```
 #### Argument Matching
-```solidity=
+```solidity
 function f(uint8 _in) public pure returns (uint8 out) {
     out = _in;
 }
@@ -391,14 +391,14 @@ if we call `f(123)`,it can be `uint8` and`uint256`,the compiler will report erro
 #### Library
 Like "Header file" in C++ , a function collection
 e.g. `Strings`
-```solidity=
+```solidity
 using Strings for uint256;
 function getString1(uint256 _number) public pure returns(string memory){
     return _number.toHexString();
 }
 ```
 or
-```solidity=
+```solidity
 function getString2(uint256 _number) public pure returns(string memory){
     return Strings.toHexString(_number);
 }
@@ -436,7 +436,7 @@ import "https://github.com/username/repo/blob/main/Contract.sol";
 
 ### 2024.10.04
 #### receive ETH
-```solidity=
+```solidity
 event Received(address Sender, uint Value);
 receive() external payable {
     emit Received(msg.sender, msg.value);
@@ -454,7 +454,7 @@ receive() external payable {
 #### Send ETH
 ##### send/transfer
 - Only 2300 gas per transfer
-```solidity=
+```solidity
 //recipient -> recipient's address
 recipient.transfer(1 ether);
 //if failed , it will revert automatically
@@ -466,7 +466,7 @@ if (!success) {
 }
 ```
 ##### call
-```solidity=
+```solidity
 (bool success, ) = recipient.call{value: 1 ether}("");
 if(!success) {
 	//if transfer failed...
@@ -477,7 +477,7 @@ if(!success) {
 #### Calling via Contract Address:
 
 Use the contract address to create a reference and call the target contract's function.<br>
-```solidity=
+```solidity
 function callSetX(address _Address, uint256 x) external {
     OtherContract(_Address).setX(x);
 }
@@ -485,7 +485,7 @@ function callSetX(address _Address, uint256 x) external {
 #### Passing Contract Reference:
 
 Pass the target contract reference directly and call its functions.<br>
-```solidity=
+```solidity
 function callGetX(OtherContract _Address) external view returns (uint x) {
     x = _Address.getX();
 }
@@ -493,7 +493,7 @@ function callGetX(OtherContract _Address) external view returns (uint x) {
 #### Creating Contract Variable:
 
 Create a contract variable within the function to call the target's functions.
-```solidity=
+```solidity
 Copy code
 function callGetX2(address _Address) external view returns (uint x) {
     OtherContract oc = OtherContract(_Address);
@@ -503,7 +503,7 @@ function callGetX2(address _Address) external view returns (uint x) {
 #### Calling `payable` Function and Sending ETH:
 
 Call a payable function and transfer ETH using {value: msg.value}.
-```solidity=
+```solidity
 Copy code
 function setXTransferETH(address otherContract, uint256 x) payable external {
     OtherContract(otherContract).setX{value: msg.value}(x);
@@ -513,7 +513,7 @@ function setXTransferETH(address otherContract, uint256 x) payable external {
 #### delegatecall
 - low-level function
 - executes the code of another contract in the context of the calling contract.
-```solidity=
+```solidity
 contract LogicContract {
     uint public number;
 

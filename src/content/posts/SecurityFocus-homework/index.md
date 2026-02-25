@@ -19,7 +19,7 @@ a XOR b
 NOT a
 ```
 
-```c=
+```c
 #include <stdio.h>
 
 int main() {
@@ -65,7 +65,7 @@ file : https://drive.google.com/drive/folders/1cWibFgH6kgvomZ7URLGztjcnxsGAodUb?
 將輸入的字串，每個字元的ASCII碼-1，並返回其是否等於```"Lx^@0R2^e?hKdc^P@P"```
 
 寫一個簡單的程式
-```python=
+```py
 passWord = "Lx^@0R2^e?hKdc^P@P"
 for c in passWord:
     print(chr(ord(c)+1),end = '')
@@ -78,7 +78,7 @@ for c in passWord:
 > flag : FLAG{My_A1S3_f@iLed_QAQ}
 
 ## Q3 : 組合語言分析
-```asm=
+```asm
 找出能夠成功跳到 paradise 的值，並簡單說明
 
 section	.text
@@ -113,7 +113,7 @@ end:
 ```
 
 讓我們寫上註釋:
-```asm=
+```asm
 section	.text
 	global _start       
 
@@ -169,7 +169,7 @@ end:
 * 會限時間，大約20秒
 
 觀察規律後，寫個pwn的小程式
-```python=
+```py
 from pwn import *
 
 r = remote('localhost',12345)

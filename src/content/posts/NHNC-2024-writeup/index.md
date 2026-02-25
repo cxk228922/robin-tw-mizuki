@@ -204,7 +204,7 @@ $\varphi (n) = pqr - pq - pr - qr + p + q + r - 1$
 $\varphi (n)=n - \text{leak} - 1$
 
 exploit:
-```python=
+```py
 from Crypto.Util.number import *
 
 n = 1588313940811583670388901008799979643227508347921726508187845925121888018384295030557217724452854073354506733734948963728906121944748626336175026165501032867164031437646285616387352213662865798266568754187475074439344239971434650851017361305440785085800565077621928128381888304170806890898358358161543138717722884498671012157552627202558915649163030193095159221015850832580026640394276672929163085422040567666556330271222397965912435822921196421000606733571473897
@@ -230,7 +230,7 @@ print(flag)
 [file link-output.txt](https://nhnc.ic3dt3a.org/files/53b33dc077dcfca2362347ca70191fc4/output.txt?token=eyJ1c2VyX2lkIjo2MywidGVhbV9pZCI6bnVsbCwiZmlsZV9pZCI6NTR9.Zzv0BA.b6r2Zoik-Eu9vLCdTZ4ee4ea7u0)
 [file link-source.py](https://nhnc.ic3dt3a.org/files/211c55dcd9826daa8c3bd7962d719825/source.py?token=eyJ1c2VyX2lkIjo2MywidGVhbV9pZCI6bnVsbCwiZmlsZV9pZCI6NTV9.Zzv0BA.3jnZWJkABECM6BBvokhnIRaSD3A)
 source.py:
-```python=
+```py
 def encrypt(text, key):
     encrypted_text = ""
     for i, char in enumerate(text):
@@ -263,7 +263,7 @@ $\text{offset} = ((i + 1 + \text{key}) \times (i + 1)) \% 26$
 最後暴力找`key`
 
 exploit:
-```python=
+```py
 def decrypt(encrypted_text, key):
     decrypted_text = ""
     for i, char in enumerate(encrypted_text):
@@ -296,7 +296,7 @@ Chacha~
 [file link](https://nhnc.ic3dt3a.org/files/01b1412b45bb251fa9bc243216689584/chal.py?token=eyJ1c2VyX2lkIjo2MywidGVhbV9pZCI6bnVsbCwiZmlsZV9pZCI6NDh9.ZzwKzQ.BPKmyaHbm67_hF9JY3I0PYgeZ0s)
 
 chal.py:
-```python=
+```py
 from Crypto.Cipher import ChaCha20
 from secret import FLAG
 import os
@@ -331,7 +331,7 @@ $\text{ciphertext} = \text{keystream} \oplus \text{text}$
 再用keystream解flag
 
 exploit:
-```python=
+```py
 from Crypto.Cipher import *
 from binascii import *
 
@@ -361,7 +361,7 @@ URL: http://23.146.248.134:31337/check
 
 source.py:
 
-```python=
+```py
 from flask import Flask, request, jsonify
 import base64
 import hashlib
@@ -442,7 +442,7 @@ b'abc'
 真的ㄟ，好扯ㄛ
 
 這樣就可以寫exploitㄌ:
-```python=
+```py
 import requests
 import base64
 
@@ -625,7 +625,7 @@ http://chal.nhnc.ic3dt3a.org:60008/
 題目告訴我們是php反序列化漏洞
 
 只關注php的部分:
-```php=
+```php
 <?php
 class WHALE{
     public function __construct($name, $report_uri)
@@ -707,7 +707,7 @@ payload目標:`__get()`請求內的`curl(r3al_name)`改為`curl(file:///flag)`
 
 
 撰寫exploit:
-```php=
+```php
 <?php
 class WHALE{
     public function __construct($name, $report_uri)
@@ -776,7 +776,7 @@ VV進去:
 這邊用IDA打開
 
 main函式裡:
-```c=
+```c
   srand(0x1234u);
   printf("Lottery! Enter your number: ");
   __isoc99_scanf("%u", &v5);
@@ -796,7 +796,7 @@ main函式裡:
 但提交是顯示錯誤，回去看看有那些函式
 
 發現了`sub_1217()`，裡面有存取到`flag`讓我很在意:
-```c=
+```c
 _BYTE *sub_1217()
 {
   __int64 v0; // rax
@@ -815,7 +815,7 @@ _BYTE *sub_1217()
 }
 ```
 `sub_11E9()`:
-```c=
+```c
 __int64 __fastcall sub_11E9(__int64 a1)
 {
   if ( rand() == -70111375 )
@@ -829,7 +829,7 @@ __int64 __fastcall sub_11E9(__int64 a1)
 - `rand()`會回傳的就只有正數，所以`sub_11E9()`只會回傳`a1 - 0x10000`
     →`v0` = `flag[0]`
 剩下怕會計算錯誤，這邊直接把code轉換成一般的C語言執行:
-```c=
+```c
 #include <stdio.h>
 #include <stdint.h>
 int main() {
@@ -872,7 +872,7 @@ nc chal.nhnc.ic3dt3a.org 2003
 [file link](https://nhnc.ic3dt3a.org/files/999ec6d04ddd2748cfdb904ef3f02a92/grading_system.zip?token=eyJ1c2VyX2lkIjo2MywidGVhbV9pZCI6bnVsbCwiZmlsZV9pZCI6NjV9.ZzrleQ.92HCyBGfRKK_XRkA-wt0YOddt98)
 
 稍微看一下source code，在switch choice時，有個選項可以開shell:
-```c=
+```c
 case 'S':
     if (is_admin) {
         spawn_shell();
@@ -887,7 +887,7 @@ case 'S':
 我:???
 
 所以exploit很簡單:
-```python=
+```py
 from pwn import *
 
 r = remote("chal.nhnc.ic3dt3a.org",2003)
@@ -921,7 +921,7 @@ nc chal.nhnc.ic3dt3a.org 2000
 [file link](https://nhnc.ic3dt3a.org/files/9aa61456b15198e0e8ff13cf67f95783/chal_23?token=eyJ1c2VyX2lkIjo2MywidGVhbV9pZCI6bnVsbCwiZmlsZV9pZCI6NjZ9.Zzvxbg.bIUHXCsDgtTUpCbFCxFrw3bHO-g)
 
 丟IDA:
-```c=
+```c
 int __fastcall main(int argc, const char **argv, const char **envp)
 {
   __int64 v3; // rdx
@@ -953,7 +953,7 @@ int __fastcall main(int argc, const char **argv, const char **envp)
 所以要想辦法用BOF蓋掉`v7`
 
 然後我比較喜歡看上面IDA給的註解:
-```c=
+```c
 v9 [rbp-8h]
 v8 [rbp-12h]
 v7 [rbp-20h]
@@ -961,7 +961,7 @@ v7 [rbp-20h]
 蓋掉`v9`+`v8`(0x12)，後面接上`cat_sleeping`
 
 接著就可以進入`secret_d00r`:
-```c=
+```c
 int secret_d00r()
 {
   __int64 v0; // rdx
@@ -1010,7 +1010,7 @@ int secret_d00r()
 值得注意的是，`v7`和`dest`在執行時有用`malloc()`動態分配空間
 
 我因為怕計算錯誤，寫了個C code模擬看到空間計算offset:
-```c=
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -1038,7 +1038,7 @@ dest: 0xbb32c0
 可以算出offset = 0xbb32c0 - 0xbb32a0 = 0x20
 
 我們就可以撰寫exploit:
-```python=
+```py
 from pwn import *
 
 #r = process('./chal_23')
@@ -1071,7 +1071,7 @@ source code很長，就不放了
 ~~很幸運我在那5個人之中~~
 
 所以我在這邊就講講他的 exploit:
-```python=
+```py
 from pwn import *
 
 p = remote('chal.nhnc.ic3dt3a.org', 2002)
@@ -1103,7 +1103,7 @@ gallery/
 然後在source可以看到，`R`選項是用於read file
 
 並且在`S`做Set category時對`classified`有過濾
-```c=
+```c
 case 'S':
   printf("Which category interests you? ");
 
