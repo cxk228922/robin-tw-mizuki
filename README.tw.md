@@ -1,5 +1,5 @@
 # 🌸 Mizuki
-<img align='right' src='logo.png' width='200px' alt="Mizuki logo">
+<img align='right' src='logo.webp' width='200px' alt="Mizuki logo">
 
 一個現代化、功能豐富的靜態部落格模板，基於 [Astro](https://astro.build) 構建，具有先進的功能和精美的設計。
 
@@ -162,7 +162,7 @@
 title: 我的第一篇部落格文章
 published: 2023-09-09
 description: 這是我新部落格的第一篇文章。
-image: ./cover.jpg
+image: ./cover.webp
 tags: [標籤1, 標籤2]
 category: 前端
 draft: false

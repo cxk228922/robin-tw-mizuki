@@ -1,5 +1,5 @@
 # 🌸 Mizuki
-<img align='right' src='logo.png' width='200px' alt="Mizuki logo">
+<img align='right' src='logo.webp' width='200px' alt="Mizuki logo">
 
 一个现代化、功能丰富的静态博客模板，基于 [Astro](https://astro.build) 构建，具有先进的功能和精美的设计。
 
@@ -171,7 +171,7 @@ BCRYPT_SALT_ROUNDS=12
 title: 我的第一篇博客文章
 published: 2023-09-09
 description: 这是我新博客的第一篇文章。
-image: ./cover.jpg
+image: ./cover.webp
 tags: [标签1, 标签2]
 category: 前端
 draft: false

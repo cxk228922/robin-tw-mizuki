@@ -47,7 +47,7 @@ export const devicesData: DeviceCategory = {
 	Phone: [
 		{
 			name: "ROG phone 8",
-			image: "/images/device/phone_left.png",
+			image: "/images/device/phone_left.webp",
 			specs: "Black / 16G + 512G",
 			description: "powerful gaming phone.",
 			link: "https://rog.asus.com/phones/rog-phone-8/"

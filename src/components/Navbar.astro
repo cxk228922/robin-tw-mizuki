@@ -35,10 +35,10 @@ let links: NavBarLink[] = navBarConfig.links.map(
 	},
 );
 
-const rawLogo = siteConfig.navbarTitle?.logo || "/assets/home/default-logo.png";
+const rawLogo = siteConfig.navbarTitle?.logo || "/assets/home/default-logo.webp";
 const logoSrc = rawLogo.match(/^(http|https|\/\/)/) ? rawLogo : url(rawLogo);
 
-const rawIcon = siteConfig.navbarTitle?.icon || "/assets/home/home.png";
+const rawIcon = siteConfig.navbarTitle?.icon || "/assets/home/home.webp";
 const iconSrc = rawIcon.match(/^(http|https|\/\/)/) ? rawIcon : url(rawIcon);
 ---
 <div id="navbar" class="z-50 onload-animation group" data-transparent-mode={navbarTransparentMode} data-is-home={isHomePage}>

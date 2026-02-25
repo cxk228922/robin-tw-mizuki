@@ -56,10 +56,10 @@ export const siteConfig: SiteConfig = {
 		mode: "logo",
 		// 顶栏标题文本
 		text: "Robin's blog",
-		// 顶栏标题图标路径，默认使用 public/assets/home/home.png
+		// 顶栏标题图标路径，默认使用 public/assets/home/home.webp
 		icon: "assets/home/fbk.jpg",
 		// 网站Logo图片路径
-		logo: "assets/home/logo.png",
+		logo: "assets/home/logo.webp",
 	},
 
 	// 页面自动缩放配置
@@ -121,19 +121,19 @@ export const siteConfig: SiteConfig = {
 		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
 		src: {
 			desktop: [
-				"/assets/desktop-banner/1.jpg",
-				"/assets/desktop-banner/2.jpg",
-				"/assets/desktop-banner/3.jpg",
-				"/assets/desktop-banner/4.jpg",
-				"/assets/desktop-banner/5.png",
-				"/assets/desktop-banner/6.png",
+				"/assets/desktop-banner/1.webp",
+				"/assets/desktop-banner/2.webp",
+				"/assets/desktop-banner/3.webp",
+				"/assets/desktop-banner/4.webp",
+				"/assets/desktop-banner/5.webp",
+				"/assets/desktop-banner/6.webp",
 			], // 桌面横幅图片
 			mobile: [
-				"/assets/mobile-banner/1.jpg",
-				"/assets/mobile-banner/2.jpg",
-				"/assets/mobile-banner/3.png",
-				"/assets/mobile-banner/4.png",
-				"/assets/mobile-banner/5.png",
+				"/assets/mobile-banner/1.webp",
+				"/assets/mobile-banner/2.webp",
+				"/assets/mobile-banner/3.webp",
+				"/assets/mobile-banner/4.webp",
+				"/assets/mobile-banner/5.webp",
 			], // 移动横幅图片			], // 移动横幅图片
 
 		}, // 使用本地横幅图片
@@ -201,7 +201,7 @@ export const siteConfig: SiteConfig = {
 	generateOgImages: false, // 启用生成OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
 	favicon: [
 		{
-		  src: '/favicon/home.png',    // 图标文件路径
+		  src: '/favicon/home.webp',    // 图标文件路径
 		  sizes: '32x32',              // 可选，图标大小
 		}
 	],
@@ -368,7 +368,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.jpg", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
+	avatar: "assets/images/avatar.webp", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
 	name: "Robin Chiang",
 	bio: "望見那無垠的天空, 尋回那一天的答案",
 	typewriter: {

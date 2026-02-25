@@ -1,5 +1,5 @@
 # 🌸 Mizuki
-<img align='right' src='logo.png' width='200px' alt="Mizuki logo">
+<img align='right' src='logo.webp' width='200px' alt="Mizuki logo">
 
 [Astro](https://astro.build) で構築された高度な機能と美しいデザインを備えた、モダンで機能が豊富な静的ブログテンプレート。
 
@@ -157,7 +157,7 @@
 title: 私の最初のブログ投稿
 published: 2023-09-09
 description: これは私の新しいブログの最初の投稿です。
-image: ./cover.jpg
+image: ./cover.webp
 tags: [タグ1, タグ2]
 category: フロントエンド
 draft: false

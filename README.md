@@ -1,5 +1,5 @@
 # 🌸 Mizuki 
-<img align='right' src='logo.png' width='200px' alt="Mizuki logo">
+<img align='right' src='logo.webp' width='200px' alt="Mizuki logo">
 
 A modern, feature-rich static blog template built with [Astro](https://astro.build), featuring advanced functionality and beautiful design.
 
@@ -160,7 +160,7 @@ Before deployment, update the `siteURL` in `src/config.ts`.
 title: My First Blog Post
 published: 2023-09-09
 description: This is the first post of my new blog.
-image: ./cover.jpg
+image: ./cover.webp
 tags: [tag1, tag2]
 category: Frontend
 draft: false
