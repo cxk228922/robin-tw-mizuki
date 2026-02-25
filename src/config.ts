@@ -395,7 +395,7 @@ export const profileConfig: ProfileConfig = {
 };
 
 export const licenseConfig: LicenseConfig = {
-	enable: true,
+	enable: false,
 	name: "CC BY-NC-SA 4.0",
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };
@@ -435,13 +435,12 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 };
 
 export const commentConfig: CommentConfig = {
-	enable: true, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
-	twikoo: {
-		envId: "twikoo-data-64dzn437j-cxk228922s-projects.vercel.app",
-		lang: SITE_LANG,
-	},
+        enable: true, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
+        twikoo: {
+                envId: "https://twikoo-data-64dzn437j-cxk228922s-projects.vercel.app/",
+                lang: SITE_LANG,
+        },
 };
-
 export const shareConfig: ShareConfig = {
 	enable: true, // 启用分享功能
 };
