@@ -373,7 +373,7 @@ export const profileConfig: ProfileConfig = {
 	bio: "望見那無垠的天空, 尋回那一天的答案",
 	typewriter: {
 		enable: true, // 启用个人简介打字机效果
-		speed: 80, // 打字速度（毫秒）
+		speed: 50, // 打字速度（毫秒）
 	},
 	links: [ //Contact
 		{
